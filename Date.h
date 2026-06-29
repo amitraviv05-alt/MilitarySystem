@@ -1,7 +1,9 @@
 #ifndef DATE_H
 #define DATE_H
+#include <ostream>
 
-class Date {
+class Date
+{
 private:
     int day;
     int month;
@@ -20,6 +22,22 @@ public:
 
     bool isValid() const;
     void print() const;
+
+    
+    friend std::ostream &operator<<(std::ostream &os, const Date &date)
+    {
+        if (date.day < 10)
+        {
+            os << "0";
+        }
+        os << date.day << "/";
+        if (date.month < 10)
+        {
+            os << "0";
+        }
+        os << date.month << "/" << date.year;
+        return os;
+    }
 };
 
 #endif // DATE_H

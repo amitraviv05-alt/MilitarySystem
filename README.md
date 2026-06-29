@@ -11,3 +11,7 @@ Supply chain:
 * The project structure is sound, but I personally avoid generic projects. I find that the story is crucial for confronting difficult decisions.
 
 After consideration, we chose military system for its complex logic and scale, forcing us to implement the classes carefully and providing a challenge.
+
+
+(Monday - 29/06/2026) 
+We have added support for operator<< function for printing date details in Date.h and support for operator<< function for printing rank details in Soldier.h.

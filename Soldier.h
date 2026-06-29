@@ -56,4 +56,18 @@ public:
     virtual void print() const;
 };
 
+
+inline std::ostream& operator<<(std::ostream& os, const Soldier::eRank& rank) {
+    switch (rank) {
+        case Soldier::eRank::PRIVATE:    os << "PRIVATE"; break;
+        case Soldier::eRank::CORPORAL:   os << "CORPORAL"; break;
+        case Soldier::eRank::SERGEANT:   os << "SERGEANT"; break;
+        case Soldier::eRank::LIEUTENANT: os << "LIEUTENANT"; break;
+        case Soldier::eRank::CAPTAIN:    os << "CAPTAIN"; break;
+        case Soldier::eRank::MAJOR:      os << "MAJOR"; break;
+        default:                         os << "UNKNOWN"; break;
+    }
+    return os;
+}
+
 #endif // SOLDIER_H

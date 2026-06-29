@@ -61,7 +61,13 @@ bool Date::setYear(int year)
 } */
 
 
-void Date::print() const
+// --------------------------------------------------------------------
+// (Monday 29/06/2026) - We're considering to remove this function
+// in order to override operator<< function to enable larger support
+// all across the system
+// --------------------------------------------------------------------
+
+/* void Date::print() const
 {
     if (day < 10) {
         cout << "0";
@@ -71,4 +77,4 @@ void Date::print() const
         cout << "0";
     }
     cout << month << "/" << year << endl;
-}
+} */
