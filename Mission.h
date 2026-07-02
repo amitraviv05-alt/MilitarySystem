@@ -13,7 +13,6 @@ public:
 
 private:
     static int s_nextMissionId;
-
     char* missionName;
     int   missionId;
     eMissionStatus status;
@@ -34,7 +33,18 @@ public:
     bool setMissionName(const char* missionName);
     bool setStatus(eMissionStatus newStatus);
 
-    virtual void print() const = 0;
+    friend std::ostream &operator<<(std::ostream &os, const Mission &mission);
+    //virtual void print() const = 0;
+};
+
+inline std::ostream& operator<<(std::ostream& os, const Mission::eMissionStatus& status) {
+    switch (status) {
+        case Mission::eMissionStatus::NOT_STARTED: os << "NOT_STARTED"; break;
+        case Mission::eMissionStatus::IN_PROGRESS: os << "IN_PROGRESS"; break;
+        case Mission::eMissionStatus::COMPLETED:   os << "COMPLETED";   break;
+        default:                                   os << "UNKNOWN";    break;
+    }
+    return os;
 };
 
 #endif // MISSION_H

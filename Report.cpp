@@ -33,13 +33,13 @@ int Report::getActiveMissionCount() const
  };
 
  std::ostream &operator<<(std::ostream &os, const Report &report)
-    {
-        os << "Soldier Count: " << report.soldierCount
-            << ", Unit Count: " << report.unitCount
-            << ", Vehicle Count: " << report.vehicleCount
-            << ", Equipment Count: " << report.equipmentCount
-            << ", Active Mission Count: " << report.activeMissionCount;
-        return os;
-    };
+{
+    os << "Soldier Count: " << report.soldierCount
+    << ", Unit Count: " << report.unitCount
+    << ", Vehicle Count: " << report.vehicleCount
+    << ", Equipment Count: " << report.equipmentCount
+    << ", Active Mission Count: " << report.activeMissionCount;
+    return os;
+};
 
 // void Report::print() const;

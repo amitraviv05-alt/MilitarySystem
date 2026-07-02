@@ -32,6 +32,7 @@ public:
     bool addSoldier(Soldier& soldier);
     bool removeSoldier(const Soldier* soldier);
     void printSoldiers() const;
+    friend std::ostream &operator<<(std::ostream &os, const Unit &Unit);
 };
 
 #endif // UNIT_H

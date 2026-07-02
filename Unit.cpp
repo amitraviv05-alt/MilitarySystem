@@ -1,8 +1,20 @@
 #include <iostream>
-#include <string.h>
 #include "Unit.h"
 using namespace std;
 
+
+Unit::Unit(const char* unitName)
+{
+    setUnitName(unitName);
+    count = 0;
+    capacity = 0;
+    soldiers = nullptr;
+}
+
+Unit::~Unit()
+{
+    delete[] soldiers;
+}
 
 const char* Unit::getUnitName() const
 {
@@ -30,7 +42,8 @@ bool Unit::setUnitName(const char* name)
     {
         return false;
     }
-
+    delete[] unitName;
+    unitName = new char[strlen(name) + 1];
     strcpy(unitName, name);
     return true;
 }
@@ -93,7 +106,7 @@ bool Unit::removeSoldier(const Soldier* soldier)
         }
     }
     return false;
-}
+};
 
 void Unit::printSoldiers() const
 {
@@ -101,4 +114,12 @@ void Unit::printSoldiers() const
     {
         cout << soldiers[i] << endl;
     }
-}
+};
+
+std::ostream &operator<<(std::ostream &os, const Unit &unit)
+{
+    os << "Unit Name: " << unit.unitName
+       << ", Unit ID: " << unit.unitId
+       << ", Soldier Count: " << unit.count;
+    return os;
+};

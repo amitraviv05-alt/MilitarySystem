@@ -37,7 +37,7 @@ Soldier *Jeep::getPassenger(int index) const
         return passengers[index];
     }
     return nullptr;
-}
+};
 
 bool Jeep::setMaxPassengers(int maxPassengers)
 {
@@ -60,7 +60,7 @@ bool Jeep::setMaxPassengers(int maxPassengers)
     this->maxPassengers = maxPassengers;
 
     return true;
-}
+};
 
 bool Jeep::loadPassenger(Soldier *soldier)
 {
@@ -71,7 +71,7 @@ bool Jeep::loadPassenger(Soldier *soldier)
 
     passengers[passengerCount++] = soldier;
     return true;
-}
+};
 
 bool Jeep::unloadPassenger(const Soldier *soldier)
 {
@@ -93,6 +93,16 @@ bool Jeep::unloadPassenger(const Soldier *soldier)
         }
     }
     return false;
+};
+
+std::ostream &operator<<(std::ostream &os, const Jeep &jeep)
+{
+    os << static_cast<const Vehicle&>(jeep) << ", Max Passengers: " << jeep.maxPassengers << ", Passenger Count: " << jeep.passengerCount;
+    for (int i = 0; i < jeep.passengerCount; ++i)
+    {
+        os << "\n, Passenger " << i + 1 << ": " << jeep.passengers[i];
+    }
+    return os;
 }
 
 // void print() const override;

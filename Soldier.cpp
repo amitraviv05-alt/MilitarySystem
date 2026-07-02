@@ -3,6 +3,27 @@
 #include "Soldier.h"
 using namespace std;
 
+Soldier::Soldier(const char *name, const Date &birthDate, const char *role, eRank rank)
+    : birthDate(birthDate)
+{
+    // ensure pointers are in a safe state before calling setters that delete[]
+    this->name = nullptr;
+    this->role = nullptr;
+    this->unit = nullptr;
+
+    setName(name);
+    setBirthDate(birthDate);
+    setRole(role);
+    setRank(rank);
+};
+
+Soldier::~Soldier()
+{
+    delete[] name;
+    delete[] role;
+    // Note: We do not delete the unit pointer here, as the Soldier does not own the Unit.
+}
+
 const char *Soldier::getName() const
 {
     return name;
@@ -50,13 +71,13 @@ bool Soldier::setName(const char *name)
     return true;
 };
 
-bool Soldier::setBirthDate(const Date& birthDate)
+bool Soldier::setBirthDate(const Date &birthDate)
 {
     this->birthDate = birthDate;
     return true;
 };
 
-bool Soldier::setRole(const char* role)
+bool Soldier::setRole(const char *role)
 {
     if (role == nullptr)
     {
@@ -74,7 +95,7 @@ bool Soldier::setRank(eRank rank)
     return true;
 };
 
-bool Soldier::setUnit(Unit* newUnit)
+bool Soldier::setUnit(Unit *newUnit)
 {
     this->unit = newUnit;
     return true;
@@ -83,7 +104,7 @@ bool Soldier::setUnit(Unit* newUnit)
 // void Soldier::print() const
 // {
 //     cout << "name: " << name
-//      << " ,birthDate: " << birthDate 
+//      << " ,birthDate: " << birthDate
 //      << " ,role: " << role << " ,rank: " << rank;
 // };
 
@@ -91,21 +112,7 @@ bool Soldier::setUnit(Unit* newUnit)
 std::ostream &operator<<(std::ostream &os, const Soldier &soldier)
 {
     os << "name: " << soldier.name
-       << " ,birthDate: " << soldier.birthDate 
+       << " ,birthDate: " << soldier.birthDate
        << " ,role: " << soldier.role << " ,rank: " << soldier.rank;
     return os;
-};
-
-Soldier::Soldier(const char* name, const Date& birthDate, const char* role, eRank rank)
-: birthDate(birthDate)
-{
-    // ensure pointers are in a safe state before calling setters that delete[]
-    this->name = nullptr;
-    this->role = nullptr;
-    this->unit = nullptr;
-
-    setName(name);
-    setBirthDate(birthDate);
-    setRole(role);
-    setRank(rank);
 };

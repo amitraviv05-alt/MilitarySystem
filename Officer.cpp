@@ -73,9 +73,9 @@ void Officer::printCommandedSoldiers() const
 };
 
 std::ostream &operator<<(std::ostream &os, const Officer &officer)
-    {
-        os << static_cast<const Soldier&>(officer) << ", Commanded Soldiers Count: " << officer.commandedCount;
-        return os;
-    };
+{
+    os << static_cast<const Soldier&>(officer) << ", Commanded Soldiers Count: " << officer.commandedCount;
+    return os;
+};
 
 // void Officer::print() const override;

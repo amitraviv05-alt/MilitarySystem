@@ -28,6 +28,7 @@ public:
     bool loadPassenger(Soldier* soldier);
     bool unloadPassenger(const Soldier* soldier);
 
+    friend std::ostream &operator<<(std::ostream &os, const Jeep &jeep);
     // void print() const override;
 };
 

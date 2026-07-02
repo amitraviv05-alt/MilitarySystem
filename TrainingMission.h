@@ -3,7 +3,8 @@
 
 #include "Mission.h"
 
-class TrainingMission : public Mission {
+class TrainingMission : public Mission 
+{
 public:
     enum class eTrainingType {
         FITNESS,
@@ -39,7 +40,33 @@ public:
 
     bool improveReadiness();
 
-    void print() const override;
+    friend std::ostream &operator<<(std::ostream &os, const TrainingMission &trainingMission);
+    //void print() const override;
+};
+
+inline std::ostream& operator<<(std::ostream& os, const TrainingMission::eTrainingType& status) 
+{
+    switch (status) 
+    {
+        case TrainingMission::eTrainingType::FITNESS: os << "FITNESS"; break;
+        case TrainingMission::eTrainingType::DRIVING: os << "DRIVING"; break;
+        case TrainingMission::eTrainingType::TECHNICAL: os << "TECHNICAL"; break;
+        case TrainingMission::eTrainingType::COMMAND: os << "COMMAND"; break;
+        default:                                   os << "UNKNOWN";    break;
+    }
+    return os;
+};
+
+inline std::ostream& operator<<(std::ostream& os, const TrainingMission::eDifficultyLevel& status) 
+{
+    switch (status) 
+    {
+        case TrainingMission::eDifficultyLevel::EASY: os << "EASY"; break;
+        case TrainingMission::eDifficultyLevel::MEDIUM: os << "MEDIUM"; break;
+        case TrainingMission::eDifficultyLevel::HARD: os << "HARD"; break;
+        default:                                   os << "UNKNOWN";    break;
+    }
+    return os;
 };
 
 #endif // TRAINING_MISSION_H
