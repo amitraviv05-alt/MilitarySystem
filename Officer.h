@@ -23,6 +23,7 @@ public:
     Soldier* getCommandedSoldier(int index) const;
 
     bool addCommandedSoldier(Soldier* soldier);
+    //bool addCommandedSoldier(Soldier& soldier);
     bool removeCommandedSoldier(const Soldier* soldier);
     void printCommandedSoldiers() const;
 
