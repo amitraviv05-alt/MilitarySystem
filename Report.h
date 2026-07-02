@@ -22,7 +22,8 @@ public:
     int getEquipmentCount() const;
     int getActiveMissionCount() const;
 
-    void print() const;
+    friend std::ostream &operator<<(std::ostream &os, const Report &report);
+    // void print() const;
 };
 
 #endif // REPORT_H

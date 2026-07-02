@@ -3,33 +3,36 @@
 
 class Soldier;
 
-class Vehicle {
+class Vehicle
+{
 private:
-    char* vehicleNumber;
-    bool  available;
-    bool  needsMaintenance;
+    char *vehicleNumber;
+    bool available;
+    bool needsMaintenance;
 
-    Soldier* driver;
+    Soldier *driver;
 
-    bool setVehicleNumber(const char* vehicleNumber);
+    bool setVehicleNumber(const char *vehicleNumber);
 
 public:
-    Vehicle(const char* vehicleNumber);
+    Vehicle(const char *vehicleNumber);
     virtual ~Vehicle();
 
-    Vehicle(const Vehicle& other) = delete;
-    Vehicle& operator=(const Vehicle& other) = delete;
+    Vehicle(const Vehicle &other) = delete;
+    Vehicle &operator=(const Vehicle &other) = delete;
 
-    const char* getVehicleNumber() const;
-    bool        getAvailable() const;
-    bool        getNeedsMaintenance() const;
-    Soldier*    getDriver() const;
+    const char *getVehicleNumber() const;
+    bool getAvailable() const;
+    bool getNeedsMaintenance() const;
+    Soldier *getDriver() const;
 
     bool setAvailability(bool status);
     bool sendToMaintenance();
-    bool setDriver(Soldier* driver);
+    bool setDriver(Soldier *driver);
 
-    virtual void print() const = 0;
+    // virtual void print() const = 0;
+    friend std::ostream &operator<<(std::ostream &os, const Vehicle &Vehicle);
+    
 };
 
 #endif // VEHICLE_H

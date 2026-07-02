@@ -80,11 +80,20 @@ bool Soldier::setUnit(Unit* newUnit)
     return true;
 };
 
-void Soldier::print() const
+// void Soldier::print() const
+// {
+//     cout << "name: " << name
+//      << " ,birthDate: " << birthDate 
+//      << " ,role: " << role << " ,rank: " << rank;
+// };
+
+// We added this general override function instead of the very specific Print() function that we've decided to remove.
+std::ostream &operator<<(std::ostream &os, const Soldier &soldier)
 {
-    cout << "name: " << name
-     << " ,birthDate: " << birthDate 
-     << " ,role: " << role << " ,rank: " << rank;
+    os << "name: " << soldier.name
+       << " ,birthDate: " << soldier.birthDate 
+       << " ,role: " << soldier.role << " ,rank: " << soldier.rank;
+    return os;
 };
 
 Soldier::Soldier(const char* name, const Date& birthDate, const char* role, eRank rank)

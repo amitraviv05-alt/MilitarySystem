@@ -28,7 +28,8 @@ public:
 
     bool setUnitName(const char* name);
 
-    bool addSoldier(Soldier* soldier);
+    //bool addSoldier(Soldier* soldier);
+    bool addSoldier(Soldier& soldier);
     bool removeSoldier(const Soldier* soldier);
     void printSoldiers() const;
 };

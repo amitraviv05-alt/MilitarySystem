@@ -38,6 +38,7 @@ public:
 
     Soldier(const Soldier& other) = delete;
     Soldier& operator=(const Soldier& other) = delete;
+    friend std::ostream &operator<<(std::ostream &os, const Soldier &soldier);
 
     const char* getName() const;
     int         getId() const;
@@ -53,7 +54,7 @@ public:
     bool setRank(eRank rank);
     bool setUnit(Unit* newUnit);
 
-    virtual void print() const;
+    // virtual void print() const;
 };
 
 

@@ -46,7 +46,36 @@ bool Officer::addCommandedSoldier(Soldier* soldier)
     return true;
 };
 
-// bool Officer::removeCommandedSoldier(const Soldier* soldier);
-// void Officer::printCommandedSoldiers() const;
+bool Officer::removeCommandedSoldier(const Soldier* soldier)
+{
+    for (int i = 0; i < commandedCount; i++)
+    {
+        if (commandedSoldiers[i] == soldier)
+        {
+            for (int j = i; j < commandedCount - 1; j++)
+            {
+                commandedSoldiers[j] = commandedSoldiers[j + 1];
+            }
+            commandedCount--;
+            return true;
+        }
+    }
+    return false;
+};
+
+void Officer::printCommandedSoldiers() const
+{
+    for (int i = 0; i < commandedCount; i++)
+    {
+        cout << "Commanded Soldier " << i + 1 << ": " << endl;
+        commandedSoldiers[i];
+    }
+};
+
+std::ostream &operator<<(std::ostream &os, const Officer &officer)
+    {
+        os << static_cast<const Soldier&>(officer) << ", Commanded Soldiers Count: " << officer.commandedCount;
+        return os;
+    };
 
 // void Officer::print() const override;

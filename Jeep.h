@@ -28,7 +28,7 @@ public:
     bool loadPassenger(Soldier* soldier);
     bool unloadPassenger(const Soldier* soldier);
 
-    void print() const override;
+    // void print() const override;
 };
 
 #endif // JEEP_H

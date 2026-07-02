@@ -27,7 +27,8 @@ public:
     bool removeCommandedSoldier(const Soldier* soldier);
     void printCommandedSoldiers() const;
 
-    void print() const override;
+    friend std::ostream &operator<<(std::ostream &os, const Officer &officer);
+    //void print() const override;
 };
 
 #endif // OFFICER_H
