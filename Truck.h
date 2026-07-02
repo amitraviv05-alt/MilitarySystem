@@ -5,10 +5,11 @@
 class Equipment;
 
 class Truck : virtual public Vehicle {
+public:
+    static const int loadedCapacity = 10;
 private:
-    Equipment** loadedEquipment;
+    Equipment* loadedEquipment[loadedCapacity];
     int loadedCount;
-    int loadedCapacity;
 
     double maxWeightKG;
 
@@ -28,7 +29,7 @@ public:
     bool loadEquipment(Equipment* equipment);
     bool unloadEquipment(const Equipment* equipment);
 
-    void print() const override;
+    //void print() const override;
 };
 
 #endif // TRUCK_H

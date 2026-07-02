@@ -19,6 +19,8 @@ public:
               const char* serialNumber,
               int quantity,
               eEquipmentStatus status);
+    Equipment(Equipment&& other) noexcept;
+    Equipment& operator=(Equipment&& other) noexcept;
     ~Equipment();
 
     Equipment(const Equipment& other) = delete;
@@ -34,7 +36,7 @@ public:
     bool setQuantity(int quantity);
     bool setStatus(eEquipmentStatus status);
 
-    void print() const;
+friend std::ostream& operator<<(std::ostream& os, const Equipment& eq);
 };
 
 #endif // EQUIPMENT_H
