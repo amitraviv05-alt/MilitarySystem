@@ -78,11 +78,11 @@ void createUnit(MilitarySystem& militarySystem) {
 
 void transferSoldier(MilitarySystem& militarySystem) {
     militarySystem.printAllUnits();
-
     if (militarySystem.getBase().getUnitCount() == 0) {
         return;
     }
-
+    if ()
+    std::string targetSoldierName = 
     int personalNumber, newUnitId;
     cout << "Soldier personal number: ";
     cin >> personalNumber;

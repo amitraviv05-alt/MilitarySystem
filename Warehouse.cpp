@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Warehouse:: Warehouse(const char* name, int capacity = 100) : capacity(capacity),count(0)
+Warehouse:: Warehouse(const char* name, int capacity) : capacity(capacity),count(0)
 {
     this->name = new char[strlen(name) + 1];
     strcpy(this->name,name);
@@ -89,7 +89,7 @@ std::ostream& operator<<(std::ostream& os, const Warehouse& wh)
 void Warehouse::printEquipment() const
 {
     for (int i = 0; i < this->count; i++) {
-        this->equipmentList[i]->print();
+        cout<<this->equipmentList[i];
     }
 }
 

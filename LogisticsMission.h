@@ -30,7 +30,7 @@ public:
     bool addEquipment(Equipment* equipment);
     bool removeEquipment(const Equipment* equipment);
 
-    void print() const override;
+    friend std::ostream &operator<<(std::ostream &os, const Mission &mission);
 };
 
 #endif // LOGISTICS_MISSION_H
