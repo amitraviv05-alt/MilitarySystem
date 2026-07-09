@@ -113,6 +113,13 @@ std::ostream& operator<<(std::ostream& os, const Equipment& eq) {
        << "Status:         " << (eq.status == Equipment::eEquipmentStatus::WORKING ? "WORKING" : "DAMAGED");
     return os;
 }
+
+void Equipment::print() const {
+    cout << "Equipment Name: " << this->name << "\n"
+         << "Serial Number:  " << this->serialNumber << "\n"
+         << "Quantity:       " << this->quantity << "\n"
+         << "Status:         " << (this->status == eEquipmentStatus::WORKING ? "WORKING" : "DAMAGED") << endl;
+}
 /*
     
     

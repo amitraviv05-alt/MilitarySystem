@@ -35,7 +35,7 @@ public:
     bool setSerialNumber(const char* serialNumber);
     bool setQuantity(int quantity);
     bool setStatus(eEquipmentStatus status);
-
+    void print() const;
 friend std::ostream& operator<<(std::ostream& os, const Equipment& eq);
 };
 

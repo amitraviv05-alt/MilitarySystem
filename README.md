@@ -17,6 +17,7 @@ After consideration, we chose military system for its complex logic and scale, f
 We have added support for operator<< function for printing date details in Date.h and support for operator<< function for printing rank details in Soldier.h.
 
 in Equipment: we decided to implement operator<< insted of the printing function. also, we implemented a move ctor, as we dont have a copy ctor, and we might want to move equipments between bases.
+note: we did end up implementing print, as it was in the header file and is requierd by class Warehouse.
 
 in Truck: ctor doesnt have variable for capacity, that means we hard code it to 10. ok defualt value, but we also never change it, so we should either:
     - allocate the array staticly insted of dinamicly, as the array size is known
@@ -26,3 +27,8 @@ that means im changing the array atribute defention in .h
 
 we kept capacity variable so other classes can refrence it (im writing this while partner is working on other classes, so i want to keep changes to a minimum)
 but we changed it to a static const variable
+
+Wearhouse: we are agian in a simular decision to the one it Truck: should capacity be static const? or should it be a variable. the. original header doesnt spesfiy beacuse the ctor does not receive a capacity. we either change ctor for a variable, or change the field capacity to static. this time ill show a variable version, as opposed to our decision in truck.
+thuse we change the header a bit
+
+added cout <<, but kept print beacuse it was in the header file.

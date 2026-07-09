@@ -12,7 +12,7 @@ private:
     int capacity;
 
 public:
-    Warehouse(const char* name);
+    Warehouse(const char* name,int capacity);
     ~Warehouse();
 
     Warehouse(const Warehouse& other) = delete;
@@ -27,6 +27,9 @@ public:
     bool       addEquipment(Equipment* equipment);
     Equipment* searchEquipment(const char* name) const;
     void       printEquipment() const;
+
+    
+    friend std::ostream& operator<<(std::ostream& os, const Warehouse& wh);
 };
 
 #endif // WAREHOUSE_H
