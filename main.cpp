@@ -81,9 +81,8 @@ void transferSoldier(MilitarySystem& militarySystem) {
     if (militarySystem.getBase().getUnitCount() == 0) {
         return;
     }
-    if ()
-    std::string targetSoldierName = 
     int personalNumber, newUnitId;
+
     cout << "Soldier personal number: ";
     cin >> personalNumber;
     cout << "Unit ID: ";
@@ -109,17 +108,17 @@ void addVehicle(MilitarySystem& militarySystem) {
     if (vehicleType == 1) {
         int maxPassengers;
         cout << "Max passengers: "; cin >> maxPassengers;
-        success = militarySystem.addJeep(vehicleNumber, maxPassengers);
+        success = militarySystem.getBase().addJeep(vehicleNumber, maxPassengers);
     } else if (vehicleType == 2) {
         double maxWeightKG;
         cout << "Max weight (kg): "; cin >> maxWeightKG;
-        success = militarySystem.addTruck(vehicleNumber, maxWeightKG);
+        success = militarySystem.getBase().addTruck(vehicleNumber, maxWeightKG);
     } else if (vehicleType == 3) {
         int maxPassengers;
         double maxWeightKG;
         cout << "Max passengers: "; cin >> maxPassengers;
         cout << "Max weight (kg): "; cin >> maxWeightKG;
-        success = militarySystem.addArmoredTransport(vehicleNumber, maxPassengers, maxWeightKG);
+        success = militarySystem.getBase().addArmoredTransport(vehicleNumber, maxPassengers, maxWeightKG);
     } else {
         cout << "Invalid vehicle type." << endl;
         return;
@@ -358,7 +357,7 @@ int main() {
             case 10: updateMissionStatus(militarySystem);              break;
             case 11: markVehicleMaintenance(militarySystem);           break;
             case 12: militarySystem.printAllData();                    break;
-            case 13: militarySystem.generateReport().print();          break;
+            case 13: cout << militarySystem.generateReport();          break;
             case 0:  cout << "Goodbye." << endl;                       break;
             default: cout << "Invalid choice." << endl;
         }

@@ -32,3 +32,7 @@ Wearhouse: we are agian in a simular decision to the one it Truck: should capaci
 thuse we change the header a bit
 
 added cout <<, but kept print beacuse it was in the header file.
+
+main:
+replaced some of the prints with <<. 
+in 

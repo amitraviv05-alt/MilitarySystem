@@ -152,7 +152,7 @@ const Warehouse* BaseFacility::findWarehouse(const char* name) const
 void BaseFacility::printVehicles() const
 {
     for (int i = 0; i < this->vehicleCount; i++) {
-        cout << this->vehicles[i];
+        cout << *this->vehicles[i];
     }
 }
 

@@ -200,7 +200,7 @@ const BaseFacility& MilitarySystem::getBase() const
 void MilitarySystem::printAllUnits() const
 {
     for (int i = 0; i < this->unitsCount; i++) {
-        cout<<this->units[i];
+        cout<< *this->units[i];
     }
 }
 
